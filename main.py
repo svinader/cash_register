@@ -29,3 +29,63 @@
 # Vārdnīcas - https://www.w3schools.com/python/python_dictionaries.asp
 # Klonēt repozitoriju - hhttps://code.visualstudio.com/docs/sourcecontrol/intro-to-git
 #
+
+import json
+
+check = []
+
+with open('check.json', 'r') as openfile:
+    check = json.load(openfile)
+
+
+while True:
+    print("\nMovie Tracker Menu:")
+    print("1. Pievienot preci")
+    print("2. Dzest preci")
+    print("3. Piemērot atlaidi")
+    print("4. Samaksat")
+    print("5. Izdrukat čeku")
+    print("6. Dzest čeku")
+    print("7. Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        product = {
+            "nosaukums" : input("Enter preces nosaukumu : "),
+            "price" : input("Enter preces cenu: "),
+        }
+        check.append(product)
+        with open("check.json", "w") as outfile:
+            json.dump(check, outfile)
+        pass
+        
+    elif choice == "2":
+        index = int(input("Enter the index of the price to remove: "))
+        check.pop(index)
+        pass
+        
+    elif choice == "3":
+        print("Ievadit atlaide procentos(%)...")
+        atlaide = int(input())
+        pass
+
+    elif choice == "4":
+    
+        pass
+
+    elif choice == "5":
+        print(check)
+        pass
+    
+    elif choice == "6":
+    
+        pass
+
+    elif choice == "7":
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+with open("check.json", "w") as check_file:
+    json.dump(check, check_file)
